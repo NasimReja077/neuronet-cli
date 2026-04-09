@@ -116,8 +116,7 @@ NeuroNet uses a **tool-augmented AI agent** that can intelligently decide when t
 
 ## 📁 Project Structure
 
-```
-
+```text
 neuronet/
 │
 ├── src/
@@ -153,7 +152,6 @@ neuronet/
 ├── package.json
 ├── README.md
 └── LICENSE
-
 ```
 ---
 
