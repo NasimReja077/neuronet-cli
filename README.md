@@ -117,43 +117,44 @@ NeuroNet uses a **tool-augmented AI agent** that can intelligently decide when t
 ## 📁 Project Structure
 
 ```
+
 neuronet/
 │
 ├── src/
-│ ├── agents/ # LangChain agent setup
-│ │ └── agent.js
-│ │
-│ ├── tools/ # All AI tools
-│ │ ├── email.tool.js
-│ │ ├── file.tool.js
-│ │ ├── web.tool.js
-│ │ ├── code.tool.js
-│ │ ├── command.tool.js
-│ │ └── analyzer.tool.js
-│ │
-│ ├── services/ # External services
-│ │ ├── mistral.service.js
-│ │ ├── email.service.js
-│ │
-│ ├── utils/ # Helper functions
-│ │ ├── logger.js
-│ │ ├── validator.js
-│ │
-│ ├── config/ # Config files
-│ │ └── env.js
-│ │
-│ ├── cli/ # CLI interface
-│ │ └── index.js
-│ │
-│ └── index.js # Entry point
+│   ├── agents/           # LangChain agent setup
+│   │   └── agent.js
+│   │
+│   ├── tools/            # All AI tools
+│   │   ├── email.tool.js
+│   │   ├── file.tool.js
+│   │   ├── web.tool.js
+│   │   ├── code.tool.js
+│   │   ├── command.tool.js
+│   │   └── analyzer.tool.js
+│   │
+│   ├── services/         # External services
+│   │   ├── mistral.service.js
+│   │   └── email.service.js
+│   │
+│   ├── utils/            # Helper functions
+│   │   ├── logger.js
+│   │   └── validator.js
+│   │
+│   ├── config/           # Config files
+│   │   └── env.js
+│   │
+│   ├── cli/              # CLI interface
+│   │   └── index.js
+│   │
+│   └── index.js          # Entry point
 │
 ├── .env
 ├── .gitignore
 ├── package.json
 ├── README.md
 └── LICENSE
-```
 
+```
 ---
 
 ## 📦 Installation
