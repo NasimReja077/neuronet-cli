@@ -2,6 +2,7 @@
 
 ![NeuroNet Banner](./assets/banner.png)
 
+
 > ⚡ **AI-powered terminal assistant with LangChain agents for automation, code analysis, and system control.**
 
 ---
@@ -24,7 +25,6 @@ It uses an intelligent **LangChain agent** powered by **Mistral AI** to understa
 * 🐞 Debug Code
 * 📖 Explain Code
 * ⚙️ Execute Shell Commands
-* 🧠 Project Analyzer (AI-based insights)
 
 ---
 
