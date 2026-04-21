@@ -31,7 +31,6 @@ It uses an intelligent **LangChain agent** powered by **Mistral AI** to understa
 ## 🧠 AI Capabilities
 
 NeuroNet uses a **tool-augmented AI agent** that can intelligently decide when to:
-
 * Execute system commands
 * Analyze and debug code
 * Interact with files
@@ -123,7 +122,7 @@ neuronet/
 │   ├── agents/           # LangChain agent setup
 │   │   └── agent.js
 │   │
-│   ├── tools/            # All AI tools
+│   ├── tools/   # All AI tools
 │   │   ├── email.tool.js
 │   │   ├── file.tool.js
 │   │   ├── web.tool.js
@@ -131,15 +130,15 @@ neuronet/
 │   │   ├── command.tool.js
 │   │   └── analyzer.tool.js
 │   │
-│   ├── services/         # External services
+│   ├── services/    # External services
 │   │   ├── mistral.service.js
 │   │   └── email.service.js
 │   │
-│   ├── utils/            # Helper functions
+│   ├── utils/     # Helper functions
 │   │   ├── logger.js
 │   │   └── validator.js
 │   │
-│   ├── config/           # Config files
+│   ├── config/    # Config files
 │   │   └── env.js
 │   │
 │   ├── cli/              # CLI interface
