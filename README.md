@@ -15,7 +15,7 @@ It uses an intelligent **LangChain agent** powered by **Mistral AI** to understa
 
 ---
 
-## ⚡ Features
+## ⚡ Features -
 
 * 💬 AI Chat Assistant
 * 🧠 Context Memory (short-term)
