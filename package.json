@@ -1,0 +1,31 @@
+{
+  "name": "neuronet-cli",
+  "version": "1.0.0",
+  "description": "![NeuroNet Banner](./assets/banner.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NasimReja077/neuronet-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/NasimReja077/neuronet-cli/issues"
+  },
+  "homepage": "https://github.com/NasimReja077/neuronet-cli#readme",
+  "dependencies": {
+    "@langchain/mistralai": "^1.2.0",
+    "chalk": "^6.0.1",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "langchain": "^1.6.4",
+    "nodemailer": "^10.5.0",
+    "prompt-sync": "^4.2.0",
+    "zod": "^4.6.7"
+  }
+}
