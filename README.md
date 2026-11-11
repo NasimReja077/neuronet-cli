@@ -2,6 +2,7 @@
 
 ![NeuroNet Banner](./assets/banner.png)
 
+
 > ⚡ **AI-powered terminal assistant with LangChain agents for automation, code analysis, and system control.**
 
 ---
@@ -14,7 +15,7 @@ It uses an intelligent **LangChain agent** powered by **Mistral AI** to understa
 
 ---
 
-## ⚡ Features
+## ⚡ Features -
 
 * 💬 AI Chat Assistant
 * 🧠 Context Memory (short-term)
@@ -24,14 +25,12 @@ It uses an intelligent **LangChain agent** powered by **Mistral AI** to understa
 * 🐞 Debug Code
 * 📖 Explain Code
 * ⚙️ Execute Shell Commands
-* 🧠 Project Analyzer (AI-based insights)
 
 ---
 
 ## 🧠 AI Capabilities
 
 NeuroNet uses a **tool-augmented AI agent** that can intelligently decide when to:
-
 * Execute system commands
 * Analyze and debug code
 * Interact with files
@@ -43,80 +42,109 @@ NeuroNet uses a **tool-augmented AI agent** that can intelligently decide when t
 ## 🏗️ Tech Stack
 
 ### ⚙️ Core
-
-* Node.js
-* JavaScript (ES6+)
+- **Node.js** – Runtime environment
+- **JavaScript (ES6+)** – Programming language
 
 ### 🤖 AI & Agent
-
-* LangChain
-* Mistral AI
+- **LangChain** – AI agent & tool orchestration
+- **Mistral AI** – Large Language Model (LLM)
 
 ### 🛠️ CLI & UX
-
-* Chalk
-* Inquirer.js
-* Ora
+- **Chalk** – Terminal styling
+- **Inquirer.js** – Interactive CLI prompts
+- **Ora** – Loading spinners
 
 ### 📧 Communication
-
-* Nodemailer
+- **Nodemailer** – Email automation
 
 ### 🧠 Validation
-
-* Zod
+- **Zod** – Schema validation & input safety
 
 ### 📂 System & OS
-
-* fs / fs-extra
-* path
-* child_process
+- **fs / fs-extra** – File system operations
+- **path** – Path handling
+- **child_process** – Execute shell commands
 
 ### 🌐 Internet
-
-* Axios
-* Cheerio (optional)
+- **Axios** – API requests
+- **Cheerio (optional)** – Web scraping
 
 ### 🔐 Config
-
-* dotenv
-
+- **dotenv** – Environment variable management
 ---
 
 ## 🧩 Architecture
 
 ```text
-User (CLI)
-   ↓
-CLI Interface (Inquirer + Chalk)
-   ↓
-LangChain Agent (Decision Maker)
-   ↓
- ┌────────────── Tools ──────────────┐
- │ File │ Web │ Code │ Email │ Exec │ Analyzer │
- └───────────────────────────────────┘
-   ↓
-Mistral AI (LLM)
-```
+                ┌──────────────────────┐
+                │     User (CLI)       │
+                └─────────┬────────────┘
+                          │
+                          ▼
+                ┌──────────────────────┐
+                │   CLI Interface      │
+                │ (Inquirer + Chalk)   │
+                └─────────┬────────────┘
+                          │
+                          ▼
+                ┌──────────────────────┐
+                │   LangChain Agent    │
+                │ (Decision Maker)     │
+                └─────────┬────────────┘
+                          │
+        ┌─────────────────┼─────────────────┐
+        ▼                 ▼                 ▼
+┌──────────────┐  ┌──────────────┐  ┌──────────────┐
+│  Code Tool   │  │  File Tool   │  │  Web Tool    │
+│ (Debug/Explain)│ │ (FS Ops)    │  │ (Search/API) │
+└──────────────┘  └──────────────┘  └──────────────┘
+
+        ▼                 ▼                 ▼
+┌──────────────┐  ┌──────────────┐  ┌──────────────┐
+│ Email Tool   │  │ Command Tool │  │ Analyzer Tool│
+│ (Nodemailer) │  │ (Shell Exec) │  │ (Project AI) │
+└──────────────┘  └──────────────┘  └──────────────┘
+
+                          │
+                          ▼
+                ┌──────────────────────┐
+                │    Mistral AI LLM    │
+                └──────────────────────┘
 
 ---
 
 ## 📁 Project Structure
 
-```
-neuronet-cli/
+```text
+neuronet/
 │
 ├── src/
-│   ├── agents/
-│   ├── tools/
-│   ├── services/
-│   ├── utils/
-│   ├── config/
-│   ├── cli/
-│   └── index.js
-│
-├── assets/
-│   └── banner.png
+│   ├── agents/           # LangChain agent setup
+│   │   └── agent.js
+│   │
+│   ├── tools/   # All AI tools
+│   │   ├── email.tool.js
+│   │   ├── file.tool.js
+│   │   ├── web.tool.js
+│   │   ├── code.tool.js
+│   │   ├── command.tool.js
+│   │   └── analyzer.tool.js
+│   │
+│   ├── services/    # External services
+│   │   ├── mistral.service.js
+│   │   └── email.service.js
+│   │
+│   ├── utils/     # Helper functions
+│   │   ├── logger.js
+│   │   └── validator.js
+│   │
+│   ├── config/    # Config files
+│   │   └── env.js
+│   │
+│   ├── cli/              # CLI interface
+│   │   └── index.js
+│   │
+│   └── index.js          # Entry point
 │
 ├── .env
 ├── .gitignore
@@ -124,7 +152,6 @@ neuronet-cli/
 ├── README.md
 └── LICENSE
 ```
-
 ---
 
 ## 📦 Installation
