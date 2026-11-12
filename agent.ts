@@ -1,7 +1,7 @@
 import { ChatMistralAI } from "@langchain/mistralai";
 import { createAgent } from "langchain";
 import { MemorySaver } from "@langchain/langgraph";
-import { allTools } from "./tools/index.js";
+import { allTools } from "./src/tools/index.js";
 
 const SYSTEM_PROMPT = `You are NEXUS, a powerful and helpful AI terminal assistant running inside the user's command line.
 
