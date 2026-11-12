@@ -43,7 +43,7 @@ NeuroNet uses a **tool-augmented AI agent** that can intelligently decide when t
 
 ### ⚙️ Core
 - **Node.js** – Runtime environment
-- **JavaScript (ES6+)** – Programming language
+- **TypeScript** – Programming language
 
 ### 🤖 AI & Agent
 - **LangChain** – AI agent & tool orchestration
@@ -119,33 +119,17 @@ NeuroNet uses a **tool-augmented AI agent** that can intelligently decide when t
 neuronet/
 │
 ├── src/
-│   ├── agents/           # LangChain agent setup
-│   │   └── agent.js
-│   │
-│   ├── tools/   # All AI tools
-│   │   ├── email.tool.js
-│   │   ├── file.tool.js
-│   │   ├── web.tool.js
-│   │   ├── code.tool.js
-│   │   ├── command.tool.js
-│   │   └── analyzer.tool.js
-│   │
-│   ├── services/    # External services
-│   │   ├── mistral.service.js
-│   │   └── email.service.js
-│   │
-│   ├── utils/     # Helper functions
-│   │   ├── logger.js
-│   │   └── validator.js
-│   │
-│   ├── config/    # Config files
-│   │   └── env.js
-│   │
-│   ├── cli/              # CLI interface
-│   │   └── index.js
-│   │
-│   └── index.js          # Entry point
-│
+│   ├── index.ts           # CLI entry point
+│   ├── agent.ts           # LangChain agent setup
+│   └── src/
+│       ├── service/
+│       │   └── mail.service.ts
+│       └── tools/
+│           ├── email.tool.ts
+│           ├── file.tool.ts
+│           ├── index.ts
+│           ├── memory.tool.ts
+│           └── shell.tool.ts
 ├── .env
 ├── .gitignore
 ├── package.json
@@ -170,9 +154,13 @@ Create a `.env` file:
 
 ```env
 MISTRAL_API_KEY=your_api_key
-EMAIL_USER=your_email
-EMAIL_PASS=your_password
+GOOGLE_USER=your_email@gmail.com
+GOOGLE_CLIENT_ID=your_client_id
+GOOGLE_CLIENT_SECRET=your_client_secret
+GOOGLE_REFRESH_TOKEN=your_refresh_token
 ```
+
+Copy `.env.example` to `.env` and fill in the credentials you use.
 
 ---
 
@@ -181,6 +169,11 @@ EMAIL_PASS=your_password
 ```bash
 npm start
 ```
+
+The standalone email-focused CLI can be started with `npm run server`.
+
+Run `npm run dev` while developing, `npm run typecheck` to check types, and
+`npm run build` to compile the application into `dist/`.
 
 ---
 

@@ -1,24 +1,39 @@
 {
-  "name": "neuronet-cli",
+  "name": "nexus-cli",
   "version": "1.0.0",
-  "description": "![NeuroNet Banner](./assets/banner.png)",
-  "main": "index.js",
+  "description": "NexusCLI — Intelligent AI terminal assistant powered by LangChain agents and Mistral AI. Features conversation memory, file ops, email, shell, and more.",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "tsx index.ts",
+    "server": "tsx server.ts",
+    "dev": "tsx watch index.ts",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NasimReja077/neuronet-cli.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "ai",
+    "cli",
+    "langchain",
+    "agent",
+    "mistral",
+    "terminal",
+    "assistant",
+    "nexus"
+  ],
+  "author": "Nasim Reja",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/NasimReja077/neuronet-cli/issues"
   },
   "homepage": "https://github.com/NasimReja077/neuronet-cli#readme",
   "dependencies": {
+    "@langchain/core": "^1.4.0",
+    "@langchain/langgraph": "^1.7.3",
     "@langchain/mistralai": "^1.2.0",
     "chalk": "^6.0.1",
     "dotenv": "^18.0.10",
@@ -27,5 +42,12 @@
     "nodemailer": "^10.5.0",
     "prompt-sync": "^4.2.0",
     "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/nodemailer": "^8.0.2",
+    "@types/prompt-sync": "^4.2.3",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
   }
 }
