@@ -1,6 +1,6 @@
 import { tool } from "langchain";
 import { z } from "zod";
-import { sendEmail } from "../services/mail.service.js";
+import { sendEmail } from "../service/mail.service.js";
 
 export const emailTool = tool(
   async ({ to, subject, html }) => {
