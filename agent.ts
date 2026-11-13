@@ -1,7 +1,7 @@
-import { ChatMistralAI } from "@langchain/mistralai";
 import { createAgent } from "langchain";
 import { MemorySaver } from "@langchain/langgraph";
 import { allTools } from "./src/tools/index.js";
+import { createGeminiModel } from "./src/service/gemini.service.js";
 
 const SYSTEM_PROMPT = `You are NEXUS, a powerful and helpful AI terminal assistant running inside the user's command line.
 
@@ -24,16 +24,11 @@ Guidelines:
 You have short-term conversation memory (this session) and long-term fact storage.`;
 
 export function createNexusAgent() {
-  const model = new ChatMistralAI({
-    model: "mistral-small-latest", // or "magistral-small-latest" / "mistral-large-latest"
-    temperature: 0.3,
-  });
-
   // Short-term memory (conversation history across turns in the same thread)
   const checkpointer = new MemorySaver();
 
   const agent = createAgent({
-    model,
+    model: createGeminiModel(),
     tools: allTools,
     systemPrompt: SYSTEM_PROMPT,
     checkpointer,
