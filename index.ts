@@ -1,17 +1,35 @@
 #!/usr/bin/env node
 import "dotenv/config";
 import chalk from "chalk";
-import promptSync from "prompt-sync";
+import { createInterface } from "node:readline";
 import { HumanMessage } from "@langchain/core/messages";
 import { createNexusAgent } from "./agent.js";
-import { verifyEmailTransporter } from "./src/service/mail.service.js";
 
-const prompt = promptSync({ sigint: true });
 const AI_NAME = "NEXUS";
 
 const THREAD_ID = "default-session"; // can be made dynamic later (e.g. per project)
 
-function printBanner() {
+async function* readQueries(): AsyncGenerator<string> {
+  const terminal = createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    terminal: Boolean(process.stdin.isTTY),
+  });
+  terminal.setPrompt(chalk.yellow.bold("You › "));
+  terminal.on("SIGINT", () => terminal.close());
+  terminal.prompt();
+
+  try {
+    for await (const query of terminal) {
+      yield query;
+      terminal.prompt();
+    }
+  } finally {
+    terminal.close();
+  }
+}
+
+function printBanner(): void {
   console.clear();
   console.log(chalk.cyan.bold("╔══════════════════════════════════════════════════╗"));
   console.log(chalk.cyan.bold("║") + chalk.green.bold("           NEXUS CLI  •  Terminal AI             ") + chalk.cyan.bold("║"));
@@ -19,10 +37,10 @@ function printBanner() {
   console.log(chalk.cyan.bold("╚══════════════════════════════════════════════════╝"));
   console.log();
   console.log(chalk.gray("  Commands: /help  /clear  /exit  /tools  /memory"));
-  console.log(chalk.gray("  Powered by LangChain + Mistral AI\n"));
+  console.log(chalk.gray("  Powered by LangChain + Google Gemini\n"));
 }
 
-function printHelp() {
+function printHelp(): void {
   console.log(chalk.yellow("\nAvailable commands:"));
   console.log(chalk.white("  /help     ") + chalk.gray("Show this help"));
   console.log(chalk.white("  /clear    ") + chalk.gray("Clear screen and start fresh conversation context"));
@@ -39,28 +57,14 @@ function printHelp() {
   console.log(chalk.gray('  "run git status"\n'));
 }
 
-async function main() {
-  if (!process.env.MISTRAL_API_KEY) {
-    console.error(chalk.red("Error: MISTRAL_API_KEY is not set in .env"));
-    process.exit(1);
-  }
-
-  // Optional email check (non-blocking)
-  void verifyEmailTransporter();
-
+async function main(): Promise<void> {
   const agent = createNexusAgent();
   const config = { configurable: { thread_id: THREAD_ID } };
 
   printBanner();
 
-  while (true) {
-    let query: string;
-    try {
-      query = prompt(chalk.yellow.bold("You › ")).trim();
-    } catch {
-      // Ctrl+C
-      break;
-    }
+  for await (const input of readQueries()) {
+    let query = input.trim();
 
     if (!query) continue;
 
