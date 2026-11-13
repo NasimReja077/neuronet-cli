@@ -11,7 +11,7 @@
 
 **NeuroNet CLI** is a powerful AI assistant that runs directly in your terminal.
 
-It uses an intelligent **LangChain agent** powered by **Mistral AI** to understand natural language and perform real-world tasks like file operations, code debugging, automation, and more.
+It uses an intelligent **LangChain agent** powered by **Google Gemini** to understand natural language and perform real-world tasks like file operations, code debugging, automation, and more.
 
 ---
 
@@ -47,7 +47,7 @@ NeuroNet uses a **tool-augmented AI agent** that can intelligently decide when t
 
 ### 🤖 AI & Agent
 - **LangChain** – AI agent & tool orchestration
-- **Mistral AI** – Large Language Model (LLM)
+- **Google Gemini** – Large Language Model (LLM)
 
 ### 🛠️ CLI & UX
 - **Chalk** – Terminal styling
@@ -108,7 +108,7 @@ NeuroNet uses a **tool-augmented AI agent** that can intelligently decide when t
                           │
                           ▼
                 ┌──────────────────────┐
-                │    Mistral AI LLM    │
+                │    Gemini AI LLM     │
                 └──────────────────────┘
 
 ---
@@ -153,14 +153,14 @@ npm install
 Create a `.env` file:
 
 ```env
-MISTRAL_API_KEY=your_api_key
+GEMINI_API_KEY=your_gemini_api_key
 GOOGLE_USER=your_email@gmail.com
 GOOGLE_CLIENT_ID=your_client_id
 GOOGLE_CLIENT_SECRET=your_client_secret
 GOOGLE_REFRESH_TOKEN=your_refresh_token
 ```
 
-Copy `.env.example` to `.env` and fill in the credentials you use.
+Copy `.env.example` to `.env`, add your Gemini API key, and fill in the Gmail OAuth2 values only if you want to use the email tool. Create a Gemini API key in [Google AI Studio](https://aistudio.google.com/apikey).
 
 ---
 
@@ -169,8 +169,6 @@ Copy `.env.example` to `.env` and fill in the credentials you use.
 ```bash
 npm start
 ```
-
-The standalone email-focused CLI can be started with `npm run server`.
 
 Run `npm run dev` while developing, `npm run typecheck` to check types, and
 `npm run build` to compile the application into `dist/`.

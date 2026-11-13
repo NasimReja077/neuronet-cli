@@ -19,6 +19,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["index.ts", "agent.ts", "server.ts", "src/**/*.ts"],
+  "include": ["index.ts", "agent.ts", "src/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
